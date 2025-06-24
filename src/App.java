@@ -15,7 +15,13 @@ public class App {
                 break;
             }
 
-            System.out.println("Entrez la base de destination (ex: hexadecimal, binary, text) :");
+            // We call our validation method .
+            if (!Validator.isAlphanumeric(inputString)) {
+                System.out.println("Erreur : La chaîne ne doit contenir que des lettres et des chiffres.");
+                continue; // 'continue' skips directly to the next iteration of the loop.
+            }
+
+            System.out.println("Entrez la base de destination (ex:  hexadecimal, octal, decimal, binary, text) :");
             String targetBase = scanner.nextLine();
 
             //For now, we are just displaying what we have received.
