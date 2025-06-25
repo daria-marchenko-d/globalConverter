@@ -15,8 +15,9 @@ public class Validator {
             //NOT an uppercase letter, AND NOT a digit.
             boolean isLetter = (character >= 'a' && character <= 'z') || (character >= 'A' && character <= 'Z');
             boolean isDigit = (character >= '0' && character <= '9');
-            
-            if (!isLetter && !isDigit) {
+            boolean isSpace = (character == ' ');
+
+            if (!isLetter && !isDigit && !isSpace) {
                 return false; // If a single invalid character is found, the process is stopped and false is returned.
             }
         }

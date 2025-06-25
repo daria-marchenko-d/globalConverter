@@ -17,16 +17,43 @@ public class App {
 
             // We call our validation method .
             if (!Validator.isAlphanumeric(inputString)) {
-                System.out.println("Erreur : La chaîne ne doit contenir que des lettres et des chiffres.");
+                System.out.println("Erreur : La chaîne ne doit contenir que des lettres, des chiffres ou des espaces.");
                 continue; // 'continue' skips directly to the next iteration of the loop.
             }
 
-            System.out.println("Entrez la base de destination (ex:  hexadecimal, octal, decimal, binary, text) :");
+            System.out.println("Choisissez la base de destination :");
+            System.out.println(" h : hexadecimal");
+            System.out.println(" o : octal");
+            System.out.println(" d : decimal");
+            System.out.println(" b : binary");
+            System.out.println(" t : text");
             String targetBase = scanner.nextLine();
 
-            //For now, we are just displaying what we have received.
-            System.out.println("Chaîne saisie :'" + inputString + "'");
-            System.out.println("Base choisie : '" + targetBase + "'");
+            // Converting abbreviated options to full names
+            switch (targetBase) {
+                case "h":
+                targetBase = "hexadecimal";
+                break;
+                case "o":
+                targetBase = "octal";
+                break;
+                case "d":
+                targetBase = "decimal";
+                break;
+                case "b":
+                targetBase = "binary";
+                break;
+                case "t":
+                targetBase = "text";
+                break;
+            }
+
+             // We create a Converter object so that we can use its methods.
+            Converter converter = new Converter();
+            // The conversion method is called
+            String result = converter.convertFromText(inputString, targetBase);
+
+            System.out.println("Résultat : " + result);
 
             // ---- WE WILL ADD THE CONVERSION LOGIC LATER HERE ----
         }
