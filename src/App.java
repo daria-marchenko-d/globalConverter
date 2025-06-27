@@ -50,7 +50,7 @@ public class App {
 
              // We create a Converter object so that we can use its methods.
             Converter converter = new Converter();
-            // The conversion method is called
+            // The conversion method is called::
             String result = converter.convertFromText(inputString, targetBase);
 
             System.out.println("Résultat : " + result);
